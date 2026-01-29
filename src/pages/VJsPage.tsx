@@ -101,6 +101,7 @@ export function VJsPage() {
         onClose={() => setModalEvent(null)}
         title={modalEvent?.name || ''}
         eventId={modalEvent ? generateEventId('vjs', modalEvent.day, modalEvent.name, modalEvent.startTime, modalEvent.location) : undefined}
+        eventInfo={modalEvent ? { name: modalEvent.name, day: modalEvent.day, startTime: modalEvent.startTime, location: modalEvent.location } : undefined}
       >
         {modalEvent && (
           <>

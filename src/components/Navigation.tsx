@@ -1,6 +1,6 @@
 import './Navigation.css';
 
-export type Category = 'music' | 'workshops' | 'performers' | 'vjs' | 'key-times' | 'map';
+export type Category = 'music' | 'workshops' | 'performers' | 'vjs' | 'key-times' | 'reminders' | 'map';
 
 interface NavigationProps {
   activeCategory: Category;
@@ -13,6 +13,7 @@ const CATEGORIES: { id: Category; label: string; icon: string }[] = [
   { id: 'performers', label: 'Performers', icon: '🔥' },
   { id: 'vjs', label: 'VJs', icon: '🎬' },
   { id: 'key-times', label: 'Key Times', icon: '🕐' },
+  { id: 'reminders', label: 'Reminders', icon: '🔔' },
   { id: 'map', label: 'Map', icon: '🗺️' },
 ];
 

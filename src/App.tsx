@@ -6,6 +6,7 @@ import { WorkshopsPage } from './pages/WorkshopsPage';
 import { PerformersPage } from './pages/PerformersPage';
 import { VJsPage } from './pages/VJsPage';
 import { KeyTimesPage } from './pages/KeyTimesPage';
+import { RemindersPage } from './pages/RemindersPage';
 import { MapPage } from './pages/MapPage';
 import './App.css';
 
@@ -24,6 +25,8 @@ function App() {
         return <VJsPage />;
       case 'key-times':
         return <KeyTimesPage />;
+      case 'reminders':
+        return <RemindersPage />;
       case 'map':
         return <MapPage />;
       default:

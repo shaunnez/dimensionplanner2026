@@ -119,3 +119,167 @@
 .modal-toggle-btn.selected {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
+
+.modal-reminder-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-reminder-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.reminder-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(102, 126, 234, 0.15);
+  border-radius: 12px;
+  flex-wrap: wrap;
+}
+
+.reminder-icon {
+  font-size: 1.1rem;
+}
+
+.reminder-text {
+  flex: 1;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+.reminder-edit-btn,
+.reminder-clear-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.reminder-edit-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.reminder-edit-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.reminder-clear-btn {
+  background: rgba(245, 87, 108, 0.2);
+  color: #f5576c;
+}
+
+.reminder-clear-btn:hover {
+  background: rgba(245, 87, 108, 0.3);
+}
+
+.reminder-picker {
+  margin-top: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reminder-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.reminder-picker-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.reminder-picker-close:hover {
+  color: #fff;
+}
+
+.reminder-inputs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.reminder-date-input,
+.reminder-time-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.reminder-date-input:focus,
+.reminder-time-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.reminder-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.reminder-save-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  transition: all 0.2s;
+}
+
+.reminder-save-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reminder-save-btn:not(:disabled):hover {
+  transform: scale(1.02);
+}
+
+.reminder-delete-btn {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: rgba(245, 87, 108, 0.2);
+  color: #f5576c;
+  transition: all 0.2s;
+}
+
+.reminder-delete-btn:hover {
+  background: rgba(245, 87, 108, 0.3);
+}
