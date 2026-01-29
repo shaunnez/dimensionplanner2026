@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# Dimension Festival Planner 2026
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mobile-first web app for planning your schedule at the Dimension Festival 2026 (10th Anniversary Edition), held January 30 - February 2, 2026 at Nukutawhiti, Northland, Aotearoa NZ.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Schedule Browser**: Browse music, workshops, performers, and VJs by day and location
+- **Event Selection**: Mark events as "Must See" or "Interested" to build your personal schedule
+- **Reminders**: Set date/time reminders for events you don't want to miss
+- **Festival Map**: Interactive map showing all venues and amenities
+- **Key Times**: Important festival times (gates, transport, etc.)
+- **Offline Support**: Selections and reminders are saved to localStorage
 
-## React Compiler
+## Festival Venues
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Astral Arena** - Main stage for music and performances
+- **Nova Grove** - Secondary music stage
+- **Cosmic Cove** - Workshops and wellness
+- **Teepee** - Ceremonies and sharing circles
+- **Fire & Flow** - Flow arts workshops
 
-## Expanding the ESLint configuration
+## Data Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+All festival data is in `src/data/festivalData.ts`:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `music` - Music acts organized by stage (Astral Arena, Nova Grove)
+- `workshops` - Workshops organized by location (Cosmic Cove, Teepee, Fire & Flow)
+- `performers` - Fire/flow performers with location info
+- `vjs` - Visual artists
+- `key_times` - Festival and transport times
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React 19 + TypeScript
+- Vite for build tooling
+- CSS for styling (no UI framework - mobile optimized)
+- localStorage for persistence
+- GitHub Pages for hosting
+
+## Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+│   ├── Navigation.tsx    # Bottom tab bar
+│   ├── EventCard.tsx     # Event list item with selection toggle
+│   ├── Modal.tsx         # Bottom sheet modal (scroll-safe)
+│   └── DayFilter.tsx     # Day filter pills
+├── context/
+│   └── SelectionContext.tsx  # Global state for selections & reminders
+├── data/
+│   └── festivalData.ts   # All festival JSON data
+├── pages/            # Page components for each tab
+│   ├── MusicPage.tsx
+│   ├── WorkshopsPage.tsx
+│   ├── PerformersPage.tsx
+│   ├── VJsPage.tsx
+│   ├── KeyTimesPage.tsx
+│   ├── RemindersPage.tsx
+│   └── MapPage.tsx
+└── App.tsx           # Main app with tab routing
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
+
+## Build & Deploy
+
+```bash
+npm run build
+```
+
+Deployed automatically to GitHub Pages via `.github/workflows/deploy.yml` on push.
+
+## Key Implementation Details
+
+- **Modal scroll fix**: When modal opens, body gets `position: fixed` to prevent background scroll, then restores scroll position on close
+- **Selection persistence**: Uses React Context + localStorage so selections work across all tabs
+- **Reminder system**: Reminders stored with event ID, reminder datetime, and notification status
+- **Mobile-first**: Designed for 320px+ screens with bottom navigation
+
+## License
+
+MIT

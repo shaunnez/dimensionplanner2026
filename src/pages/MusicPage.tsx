@@ -127,6 +127,7 @@ export function MusicPage() {
         onClose={() => setModalEvent(null)}
         title={modalEvent?.name || ''}
         eventId={modalEvent ? generateEventId('music', modalEvent.day, modalEvent.name, modalEvent.startTime, modalEvent.location) : undefined}
+        eventInfo={modalEvent ? { name: modalEvent.name, day: modalEvent.day, startTime: modalEvent.startTime, location: modalEvent.location } : undefined}
       >
         {modalEvent && (
           <>
