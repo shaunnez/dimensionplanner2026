@@ -7,7 +7,7 @@ export function MapPage() {
 
       <div className="map-image-container">
         <img
-          src={import.meta.env.BASE_URL + 'map.png'}
+          src={import.meta.env.BASE_URL + 'map.PNG'}
           alt="Dimension Festival Map"
           className="map-image"
         />
